@@ -1,16 +1,16 @@
 let tr = document.querySelector('#freqAnalyzer g');
 
-let QTY = 400;
+let QTY_OF_FREQS_to_CONSIDER = 400;
+let VISIBLE_FREQS = 50;
 
-
-for (let i = 0; i < QTY; i++) {
+for (let i = 0; i < VISIBLE_FREQS; i++) {
     let attr;
     let cell = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
     cell.id = `cell${i}`;
     cell.classList.add('cell');
 
     attr = document.createAttribute('width');
-    attr.value = 500 / QTY;
+    attr.value = 500 / VISIBLE_FREQS;
     cell.attributes.setNamedItem(attr);
 
     attr = document.createAttribute('height');
@@ -18,7 +18,7 @@ for (let i = 0; i < QTY; i++) {
     cell.attributes.setNamedItem(attr);
 
     attr = document.createAttribute('x');
-    attr.value = i * 500 / QTY;
+    attr.value = i * 500 / VISIBLE_FREQS;
     cell.attributes.setNamedItem(attr);
 
     attr = document.createAttribute('y');
@@ -75,16 +75,19 @@ EODG.handleStream = stream => {
 
         analyser.getByteFrequencyData(frequencyArray);
 
-        for (let i = 0; i < 500; i++) {
-            let x = Math.floor(frequencyArray[i]);
-            // document
-            //     .getElementById(`cell${i}`)
-            //     .style
-            //     .fill = `rgb(${x}, ${x}, ${x})`;
+        for (let i = 0, counter = 0; i < VISIBLE_FREQS; i++) {
+            
+            let sum = 0,
+                batchSize = QTY_OF_FREQS_to_CONSIDER / VISIBLE_FREQS;
+            
+            for (let j = 0; j < QTY_OF_FREQS_to_CONSIDER / VISIBLE_FREQS; j++, counter++) {
+                sum += frequencyArray[i];
+            }
+            
             document
                 .getElementById(`cell${i}`)
                 .style
-                .fillOpacity = x/255;
+                .fillOpacity = Math.floor(sum / batchSize)/400;
         }
     }
     

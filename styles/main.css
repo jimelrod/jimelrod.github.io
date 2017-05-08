@@ -10,16 +10,11 @@ body {
     position: relative;
 }
 
-td {
-    width: 2px;
-    height: 100px;
-}
-
 #freqAnalyzer {
     position: absolute;
     height: 100%;
     width: 100%;
-    z-index: 100;
+    z-index: 50;
     left: 0;
     top: 0;
 }

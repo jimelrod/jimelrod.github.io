@@ -50,6 +50,6 @@ document.body.animate([
         backgroundColor: "#ffff00"
     }
 ], {
-    duration: 9000,
+    duration: 20000,
     iterations: Infinity
 });
