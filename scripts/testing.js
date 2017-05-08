@@ -1,7 +1,7 @@
 let tr = document.querySelector('#freqAnalyzer g');
 
 let QTY_OF_FREQS_to_CONSIDER = 400;
-let VISIBLE_FREQS = 50;
+let VISIBLE_FREQS = 400;
 
 for (let i = 0; i < VISIBLE_FREQS; i++) {
     let attr;
