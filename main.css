@@ -6,4 +6,19 @@ body {
     max-height: 90vh;
     margin: 0 auto;
     max-width: 90vh;
+    z-index: 10;
+    position: relative;
+}
+
+/*.visual-tester {
+    width: 300px;
+    height: 300px;
+}*/
+
+#mask {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: black;
 }
