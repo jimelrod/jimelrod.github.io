@@ -1,5 +1,6 @@
 body {
     text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
 }
 
 #logo {
@@ -21,4 +22,24 @@ body {
 
 #freqAnalyzer g {
     width: inherit;
+}
+
+.cyan {
+    fill: cyan;
+}
+
+.magenta {
+    fill: magenta;
+}
+
+.yellow {
+    fill: yellow;
+}
+
+.black {
+    fill: black;
+}
+
+.cell {
+    fill: black;
 }

@@ -1,0 +1,48 @@
+[{
+        "selector": ".yellow",
+        "colors": [
+            "#ffff00",
+            "#ff00ff",
+            "#00ffff",
+            "#ffff00"
+        ]
+    },
+    {
+        "selector": ".magenta",
+        "colors": [
+            "#ff00ff",
+            "#00ffff",
+            "#ffff00",
+            "#ff00ff"
+        ]
+    },
+    {
+        "selector": ".cyan",
+        "colors": [
+            "#00ffff",
+            "#ffff00",
+            "#ff00ff",
+            "#00ffff"
+        ]
+    },
+    {
+        "selector": ".black",
+        "colors": [
+            "#000000",
+            "#cccccc",
+            "#000000"
+        ]
+    },
+    {
+        "selector": "body",
+        "colors": [
+            "#ffff00",
+            "#ff00ff",
+            "#00ffff",
+            "#ffffff",
+            "#ffff00"
+        ],
+        "styleTarget": "backgroundColor",
+        "duration": 20000
+    }
+]
