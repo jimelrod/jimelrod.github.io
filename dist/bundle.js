@@ -89,9 +89,9 @@ class FrequencyAnalyzer {
             attr.value = 500 / this.visibleFrequencies;
             cell.attributes.setNamedItem(attr);
 
-            attr = document.createAttribute('height');
-            attr.value = 500;
-            cell.attributes.setNamedItem(attr);
+            // attr = document.createAttribute('height');
+            // attr.value = 500;
+            // cell.attributes.setNamedItem(attr);
 
             attr = document.createAttribute('x');
             attr.value = i * 500 / this.visibleFrequencies;
@@ -131,10 +131,11 @@ class FrequencyAnalyzer {
             analyser.getByteFrequencyData(dataArray);
 
             for (let i = 0; i < visibleFrequencies; i++) {
-                document
-                    .getElementById(`cell${i}`)
-                    .style
-                    .fillOpacity = dataArray[i]/256;
+                let ele = document.getElementById(`cell${i}`);
+                let attr = document.createAttribute('height');
+                attr.value = dataArray[i] * 2;
+                ele.attributes.setNamedItem(attr);
+                ele.style.fillOpacity = dataArray[i]/256;
             }
         }
         
