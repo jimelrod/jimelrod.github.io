@@ -4,7 +4,7 @@
 var EODG = {};
 
 const QTY_OF_FREQS_to_CONSIDER = 256;
-const VISIBLE_FREQS = 128;
+const VISIBLE_FREQS = 5;
 
 // Possibly testing only...
 EODG.renderInitialFreguencyAnalyzer = () => {
