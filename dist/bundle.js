@@ -134,10 +134,10 @@ class FrequencyAnalyzer {
 
             for (let i = 0; i < visibleFrequencies; i++) {
                 let ele = document.getElementById(`cell${i}`);
-                let attr = document.createAttribute('height');
-                attr.value = dataArray[i] * 2;
-                ele.attributes.setNamedItem(attr);
-                ele.style.fillOpacity = dataArray[i]/256;
+                
+                __WEBPACK_IMPORTED_MODULE_0__util__["a" /* Util */].AddAttributeToElement(ele, 'height', dataArray[i] * 2);
+                
+                ele.style.fillOpacity = dataArray[i]/256;                
             }
         }
         
@@ -146,15 +146,14 @@ class FrequencyAnalyzer {
 
     // Asks user for permission to use mic, rocks and rolls if that's cool
     initialize() {
-        navigator.getUserMedia({
-            audio: true
-        }, stream => {
-            
+        let constraints = { audio: true };
+        
+        let successCallback = stream => {
             this.renderBase();
             this.animate(stream);
-
-        }, err => {
-            
+        };
+        
+        let errorCallback = err => {
             // Ignore error thrown when user blocks mic access
             if (err.name == "PermissionDeniedError") {
                 return;
@@ -162,7 +161,9 @@ class FrequencyAnalyzer {
 
             // Uhhh... Should probably do something more...
             console.error(err);
-        });
+        };
+
+        navigator.getUserMedia(constraints, successCallback, errorCallback);
     }
 
     static confirmAllowMicrophoneAccess() {
