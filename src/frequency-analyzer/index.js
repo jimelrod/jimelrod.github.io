@@ -1,11 +1,18 @@
+// TODO: Change from a linear freq representation to a logarithmic(sp?)
+
 import {Util} from '../util';
 
 export class FrequencyAnalyzer {
+    
     constructor() {
+
         this.visibleFrequencies = 128;
+
     }
 
-    render() {
+    // Renders cells for bars of the frequency analyzer
+    renderBase() {
+
         let freqAnalyzerEle = document.querySelector('#freqAnalyzer g');
 
         for (let i = 0; i < this.visibleFrequencies; i++) {
@@ -25,6 +32,9 @@ export class FrequencyAnalyzer {
         }
     }
 
+    // This does all the magic with the audio stream... I don't know 
+    // what all is really going on here... but it works, so there's that...
+    // Thanks MDN
     animate(stream) {
         let visibleFrequencies = this.visibleFrequencies;
 
@@ -60,17 +70,24 @@ export class FrequencyAnalyzer {
         doDraw();
     }
 
+    // Asks user for permission to use mic, rocks and rolls if that's cool
     initialize() {
         navigator.getUserMedia({
             audio: true
         }, stream => {
-            this.render();
-            this.animate(stream)
+            
+            this.renderBase();
+            this.animate(stream);
+
         }, err => {
+            
             // Ignore error thrown when user blocks mic access
-            if (err.name != "PermissionDeniedError") {
-                console.log(err);
+            if (err.name == "PermissionDeniedError") {
+                return;
             }
+
+            // Uhhh... Should probably do something more...
+            console.error(err);
         });
     }
 
