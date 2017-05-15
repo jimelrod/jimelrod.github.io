@@ -122,7 +122,6 @@ class FrequencyAnalyzer {
 
         analyser.fftSize = 256;
         var bufferLength = analyser.frequencyBinCount;
-        console.log(bufferLength);
         var dataArray = new Uint8Array(bufferLength);
 
         function doDraw() {
@@ -148,7 +147,12 @@ class FrequencyAnalyzer {
         }, stream => {
             this.render();
             this.animate(stream)
-        }, err => console.log(err));
+        }, err => {
+            // Ignore error thrown when user blocks mic access
+            if (err.name != "PermissionDeniedError") {
+                console.log(err);
+            }
+        });
     }
 
     static confirmAllowMicrophoneAccess() {
