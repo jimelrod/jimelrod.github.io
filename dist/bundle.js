@@ -71,6 +71,9 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(4);
+
+
 class FrequencyAnalyzer {
     constructor() {
         this.visibleFrequencies = 128;
@@ -80,26 +83,17 @@ class FrequencyAnalyzer {
         let freqAnalyzerEle = document.querySelector('#freqAnalyzer g');
 
         for (let i = 0; i < this.visibleFrequencies; i++) {
-            let attr;
+
             let cell = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+
+            console.log(cell.constructor.name);
+
             cell.id = `cell${i}`;
             cell.classList.add('cell');
 
-            attr = document.createAttribute('width');
-            attr.value = 500 / this.visibleFrequencies;
-            cell.attributes.setNamedItem(attr);
-
-            // attr = document.createAttribute('height');
-            // attr.value = 500;
-            // cell.attributes.setNamedItem(attr);
-
-            attr = document.createAttribute('x');
-            attr.value = i * 500 / this.visibleFrequencies;
-            cell.attributes.setNamedItem(attr);
-
-            attr = document.createAttribute('y');
-            attr.value = 1000;
-            cell.attributes.setNamedItem(attr);
+            __WEBPACK_IMPORTED_MODULE_0__util__["a" /* Util */].AddAttributeToElement(cell, 'width', 500 / this.visibleFrequencies);
+            __WEBPACK_IMPORTED_MODULE_0__util__["a" /* Util */].AddAttributeToElement(cell, 'x', i * 500 / this.visibleFrequencies);
+            __WEBPACK_IMPORTED_MODULE_0__util__["a" /* Util */].AddAttributeToElement(cell, 'y', 1000);
 
             freqAnalyzerEle.appendChild(cell);
         }
@@ -107,7 +101,6 @@ class FrequencyAnalyzer {
 
     animate(stream) {
         let visibleFrequencies = this.visibleFrequencies;
-        console.log(visibleFrequencies);
 
         //Audio stops listening in FF without // window.persistAudioStream = stream;
         //https://bugzilla.mozilla.org/show_bug.cgi?id=965483
@@ -289,6 +282,25 @@ module.exports = [
 		"duration": 20000
 	}
 ];
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// Static Utility class for... well... random shit...
+
+class Util {
+    
+    // Adds an attribute to a DOM element
+    static AddAttributeToElement(ele, attrName, attrValue) {
+        let attr = document.createAttribute(attrName);
+        attr.value = attrValue;
+        ele.attributes.setNamedItem(attr);
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Util;
+
 
 /***/ })
 /******/ ]);

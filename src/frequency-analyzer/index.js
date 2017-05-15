@@ -1,3 +1,5 @@
+import {Util} from '../util';
+
 export class FrequencyAnalyzer {
     constructor() {
         this.visibleFrequencies = 128;
@@ -7,26 +9,17 @@ export class FrequencyAnalyzer {
         let freqAnalyzerEle = document.querySelector('#freqAnalyzer g');
 
         for (let i = 0; i < this.visibleFrequencies; i++) {
-            let attr;
+
             let cell = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+
+            console.log(cell.constructor.name);
+
             cell.id = `cell${i}`;
             cell.classList.add('cell');
 
-            attr = document.createAttribute('width');
-            attr.value = 500 / this.visibleFrequencies;
-            cell.attributes.setNamedItem(attr);
-
-            // attr = document.createAttribute('height');
-            // attr.value = 500;
-            // cell.attributes.setNamedItem(attr);
-
-            attr = document.createAttribute('x');
-            attr.value = i * 500 / this.visibleFrequencies;
-            cell.attributes.setNamedItem(attr);
-
-            attr = document.createAttribute('y');
-            attr.value = 1000;
-            cell.attributes.setNamedItem(attr);
+            Util.AddAttributeToElement(cell, 'width', 500 / this.visibleFrequencies);
+            Util.AddAttributeToElement(cell, 'x', i * 500 / this.visibleFrequencies);
+            Util.AddAttributeToElement(cell, 'y', 1000);
 
             freqAnalyzerEle.appendChild(cell);
         }
@@ -34,7 +27,6 @@ export class FrequencyAnalyzer {
 
     animate(stream) {
         let visibleFrequencies = this.visibleFrequencies;
-        console.log(visibleFrequencies);
 
         //Audio stops listening in FF without // window.persistAudioStream = stream;
         //https://bugzilla.mozilla.org/show_bug.cgi?id=965483
