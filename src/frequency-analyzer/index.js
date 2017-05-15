@@ -19,8 +19,6 @@ export class FrequencyAnalyzer {
 
             let cell = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 
-            console.log(cell.constructor.name);
-
             cell.id = `cell${i}`;
             cell.classList.add('cell');
 
