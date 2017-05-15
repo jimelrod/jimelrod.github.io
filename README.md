@@ -9,3 +9,5 @@ Currently, it's just an SVG with javascript animations.
 It utilizes the mic on the client-side (if permitted) to display a frequency analyzer.
 
 `// TODO: Better dox?`
+
+**DISCLAIMER:** This has only been tested on Chrome for Windows 10
