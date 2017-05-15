@@ -152,7 +152,7 @@ class FrequencyAnalyzer {
     }
 
     static confirmAllowMicrophoneAccess() {
-        return confirm("Allow Mic?");
+        return confirm("Allow Mic?\n\nNo audio is being collected/stored/transmitted anywhere.");
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = FrequencyAnalyzer;
@@ -221,7 +221,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 (() => {
 
-    if (confirm("Animate?")) {
+    if (confirm("Animate?\n\nWARNING: This site contains animations which may potentially trigger seizures for people with photosensitive epilepsy. Viewer discretion is advised.")) {
         let mainAnimations = new __WEBPACK_IMPORTED_MODULE_0__main_animations__["a" /* MainAnimations */]();
         mainAnimations.start();
 
@@ -229,8 +229,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             let frequencyAnalyzer = new __WEBPACK_IMPORTED_MODULE_1__frequency_analyzer__["a" /* FrequencyAnalyzer */]();
             frequencyAnalyzer.initialize();
         }
-    }
-    
+    }    
 })();
 
 /***/ }),

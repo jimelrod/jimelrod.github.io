@@ -3,7 +3,7 @@ import {FrequencyAnalyzer} from './frequency-analyzer';
 
 (() => {
 
-    if (confirm("Animate?")) {
+    if (confirm("Animate?\n\nWARNING: This site contains animations which may potentially trigger seizures for people with photosensitive epilepsy. Viewer discretion is advised.")) {
         let mainAnimations = new MainAnimations();
         mainAnimations.start();
 
@@ -11,6 +11,5 @@ import {FrequencyAnalyzer} from './frequency-analyzer';
             let frequencyAnalyzer = new FrequencyAnalyzer();
             frequencyAnalyzer.initialize();
         }
-    }
-    
+    }    
 })();

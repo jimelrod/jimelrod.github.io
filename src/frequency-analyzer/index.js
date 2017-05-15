@@ -79,6 +79,6 @@ export class FrequencyAnalyzer {
     }
 
     static confirmAllowMicrophoneAccess() {
-        return confirm("Allow Mic?");
+        return confirm("Allow Mic?\n\nNo audio is being collected/stored/transmitted anywhere.");
     }
 }
