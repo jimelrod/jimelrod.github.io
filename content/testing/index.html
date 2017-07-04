@@ -14,7 +14,7 @@
             <script>
                 let callHealthCheck = () => {
                     $.ajax({
-                        url: 'http://localhost:44369/api/healthcheck',
+                        url: 'https://localhost:44396/api/healthcheck',
                         crossDomain: true,
                         success: (data, textStatus, jqXHR) => {
                             console.log(data);
