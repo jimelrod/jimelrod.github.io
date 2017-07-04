@@ -12,28 +12,32 @@
             integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
             crossorigin="anonymous"></script>
             <script>
-                $.ajax({
-                    url: 'http://localhost:44369/api/healthcheck',
-                    crossDomain: true,
-                    success: (data, textStatus, jqXHR) => {
-                        console.log(data);
-                        console.log(textStatus);
-                        console.log(jqXHR);
-                    },
-                    error: (jqXHR, textStatus, errorThrown) => {
-                        console.log(jqXHR);
-                        console.log(textStatus);
-                        console.log(errorThrown);
-                    }
-                });
-
-
-
+                let callHealthCheck = () => {
+                    $.ajax({
+                        url: 'http://localhost:44369/api/healthcheck',
+                        crossDomain: true,
+                        success: (data, textStatus, jqXHR) => {
+                            console.log(data);
+                            console.log(textStatus);
+                            console.log(jqXHR);
+                        },
+                        error: (jqXHR, textStatus, errorThrown) => {
+                            console.log(jqXHR);
+                            console.log(textStatus);
+                            console.log(errorThrown);
+                        }
+                    });
+                };
             </script>
     </head>
     <body>
         <div class="main">
             <p></p>
         </div>
+        <script>
+            $(document).ready(() => {
+                callHealthCheck();
+            });
+        </script>
     </body>
 </html>
